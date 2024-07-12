@@ -1,0 +1,66 @@
+/* Estilos específicos para subir calificaciones */
+.calif {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+    width: 400px;
+    border-radius: 25px;
+    background: linear-gradient(50deg, rgb(88, 89, 96) 40%, rgba(40, 42, 55, 0.7)), url(images/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 15px;
+    width: 500px;
+    border-radius: 25px;
+}
+
+.calif h1 {
+    color: #959aab;
+    font-size: 40px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.calif form {
+    text-align: center;
+}
+
+.calif label {
+    display: inline-block;
+    width: 200px;
+    font-size: 17px;
+    color: #a9abb5;
+    margin-bottom: 10px;
+    border-top-left-radius: 20%;
+}
+
+.calif input[type="text"],
+.calif input[type="number"] {
+    width: 200px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.calif button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calif button:hover {
+    background-color: #45a049;
+}
+
+.calif #resultadoPromedio {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Digital - Cursos</title>
+    <link rel="stylesheet" href="css/styles-cursos.css">
+</head>
+<body>
+    <header>
+        <h1>Campus Digital</h1>
+    </header>
+
+    <nav>
+        <a href="inicio.html">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="calendario.html">Calendario</a>
+
+    </nav>
+
+    <main>
+        <section>
+            <h2>Cursos</h2>
+            <ul id="lista-cursos">
+                <li><a href="#" onclick="irACurso('curso1')">Curso 1: COMUNICACION</a></li>
+                <li><a href="#" onclick="irACurso('curso2')">Curso 2: MATEMATICA</a></li>
+                <li><a href="#" onclick="irACurso('curso3')">Curso 3: CIENCIAS SOCIALES</a></li>
+                <li><a href="#" onclick="irACurso('curso4')">Curso 4: ARTE</a></li>
+                <li><a href="#" onclick="irACurso('curso5')">Curso 5: RELIGION</a></li>
+                <li><a href="#" onclick="irACurso('curso6')">Curso 6: CIENCIAS Y TEGNOLOCIA </a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;  "Fundación especial: ayuda a los estudiantes con bajo intelecto donando".</p>
+    </footer>
+
+    <script>
+        function irACurso(curso) {
+            
+            window.location.href = `${curso}.html`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario con Tareas y Asuntos - Campus Digital</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a.active {
+            background-color: #0056b3;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+        }
+
+        .calendar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 800px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .calendar-header button {
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #month-year {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #calendar-table th,
+        #calendar-table td {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #calendar-table th {
+            background-color: #f2f2f2;
+        }
+
+        .task-input {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        #task-text {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        #add-task-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        #tasks-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        #tasks-list .task-item {
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #f2f2f2;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calendario con Tareas y Asuntos - Campus Digital</h1>
+    </header>
+    <nav>
+        <a href="inicio.html">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="calendario.html">Calendario</a>
+    </nav>
+    <div class="calendar-container">
+        <div class="calendar">
+            <div class="calendar-header">
+                <button id="prev-month">&lt;</button>
+                <h2 id="month-year">Enero 2024</h2>
+                <button id="next-month">&gt;</button>
+            </div>
+            <table id="calendar-table">
+                <thead>
+                    <tr>
+                        <th>Lun</th>
+                        <th>Mar</th>
+                        <th>Mié</th>
+                        <th>Jue</th>
+                        <th>Vie</th>
+                        <th>Sáb</th>
+                        <th>Dom</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="task-input">
+            <h3>Tareas para <span id="selected-date">...</span></h3>
+            <textarea id="task-text" placeholder="Agrega una tarea"></textarea>
+            <button id="add-task-btn">Agregar tarea</button>
+            <div id="tasks-list">
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const calendarBody = document.getElementById("calendar-body");
+            const monthYearText = document.getElementById("month-year");
+            const selectedDateText = document.getElementById("selected-date");
+            const taskTextArea = document.getElementById("task-text");
+            const addTaskBtn = document.getElementById("add-task-btn");
+            const tasksList = document.getElementById("tasks-list");
+
+            let currentDate = new Date();
+            let currentMonth = currentDate.getMonth();
+            let currentYear = currentDate.getFullYear();
+
+            renderCalendar(currentMonth, currentYear);
+
+            function renderCalendar(month, year) {
+                calendarBody.innerHTML = "";
+
+                const firstDayOfMonth = new Date(year, month, 1);
+                const lastDayOfMonth = new Date(year, month + 1, 0);
+                const daysInMonth = lastDayOfMonth.getDate();
+                const startDayOfWeek = firstDayOfMonth.getDay();
+
+                const monthNames = [
+                    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                ];
+                monthYearText.textContent = `${monthNames[month]} ${year}`;
+
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    const row = document.createElement("tr");
+
+                    for (let j = 0; j < 7; j++) {
+                        const cell = document.createElement("td");
+                        if (i === 0 && j < startDayOfWeek) {
+                            cell.textContent = "";
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            cell.textContent = date;
+                            const fullDate = new Date(year, month, date);
+                            cell.dataset.date = fullDate.toISOString().split("T")[0];
+                            cell.addEventListener("click", function() {
+                                selectDate(fullDate);
+                            });
+                            date++;
+                        }
+                        row.appendChild(cell);
+                    }
+
+                    calendarBody.appendChild(row);
+                }
+
+                const selectedDate = new Date(year, month, 1);
+                selectDate(selectedDate);
+            }
+
+            function selectDate(date) {
+                selectedDateText.textContent = formatDate(date);
+                displayTasks(date.toISOString().split("T")[0]);
+            }
+
+            function formatDate(date) {
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString('es-ES', options);
+            }
+
+            function displayTasks(date) {
+                const storedTasks = JSON.parse(localStorage.getItem("tasks")) || {};
+                const tasksForDate = storedTasks[date] || [];
+                tasksList.innerHTML = "";
+
+                tasksForDate.forEach(task => {
+                    const taskItem = document.createElement("div");
+                    taskItem.classList.add("task-item");
+                    taskItem.textContent = task;
+                    tasksList.appendChild(taskItem);
+                });
+            }
+
+            addTaskBtn.addEventListener("click", function() {
+                const taskText = taskTextArea.value.trim();
+                if (taskText === "") return;
+
+                const selectedDate = selectedDateText.textContent;
+                const dateKey = new Date(selectedDate).toISOString().split("T")[0];
+
+                let storedTasks = JSON.parse(localStorage.getItem("tasks")) || {};
+                if (!storedTasks[dateKey]) {
+                    storedTasks[dateKey] = [];
+                }
+                storedTasks[dateKey].push(taskText);
+                localStorage.setItem("tasks", JSON.stringify(storedTasks));
+
+                displayTasks(dateKey);
+                taskTextArea.value = "";
+            });
+
+            document.getElementById("prev-month").addEventListener("click", function() {
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                renderCalendar(currentMonth, currentYear);
+            });
+
+            document.getElementById("next-month").addEventListener("click", function() {
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                renderCalendar(currentMonth, currentYear);
+            });
+        });
+    </script>
+</body>
+</html>

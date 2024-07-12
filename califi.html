@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colocar Calificaciones</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Colocar Calificaciones</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="star.html">Página principal</a>
+            <a href="reportes.html">Generar reportes</a>
+            <a href="perfil1.html">Perfil</a>
+            <a href="chat.html">eventos</a>
+        </nav>
+    
+        <section id="subir-calificaciones">
+            <div class="calif">
+                <h2>Subir Calificaciones de Estudiantes</h2>
+                <form id="formSubirCalificaciones" onsubmit="redirectToAnotherPage(event)">
+                    <label for="curso">Materia</label>
+                    <input type="text" id="curso" required>
+
+                    <label for="dniEstudiante">DNI del Estudiante:</label>
+                    <input type="text" id="dniEstudiante" required>
+
+                    <label for="numCalificaciones">Número de calificaciones:</label>
+                    <input type="number" id="numCalificaciones" min="1" required>
+                    
+                    <div id="calificacionesInput"></div>
+                    <div id="resultadoPromedio"></div>
+                    <br><br>
+                  
+                </form>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Team queso. Gracias por ayudar a todos los estudiantes especiales que tienen</p>
+        </div>
+    </footer>
+    
+    <script src="scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyGradebook</title>
+    <link rel="stylesheet" href="iniciosss.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to MyGradebook</h1>
+        <p>organiza y visualiza tu historial academico de forma sencilla</p>
+        <p>por favor seleccione su rol:</p>
+        <button onclick="checkStudentAccess()" class="btn">soy estudiante</button>
+        <button onclick="checkAccess()" class="btn">soy maestro</button>
+    </div>
+
+    <script>
+        function checkStudentAccess() {
+            var dni = prompt("Please enter your DNI:");
+            if (dni === "60961250") { 
+                window.location.href = "inicio.html";
+            } else {
+                alert("Access denied. Incorrect DNI.");
+            }
+        }
+
+        function checkAccess() {
+            var accessCode = prompt("Please enter the access code:");
+            if (accessCode === "240630") {
+                window.location.href = "star.html";
+            } else {
+                alert("Access denied. Incorrect access code.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+

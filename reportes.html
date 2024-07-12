@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Reportes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       
+        body {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(images/bg.jpg) no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.612);
+            padding: 20px;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .container {
+            background-color: rgba(36, 34, 34, 0.913);
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a.active {
+            background-color: #0056b3;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+        }
+
+        .btn {
+            background-color: #1E92E9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0F6AB4;
+        }
+
+       
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #211f1f;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 999;
+            box-shadow: 0 -2px 8px rgba(50, 48, 48, 0.856);
+        }
+
+        footer .footer-content {
+            background-color: #272525;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid #3a3232;
+            box-shadow: 0 4px 8px rgba(49, 48, 48, 0.929);
+            color: #f0e8e8;
+            font-size: 14px;
+        }
+
+        .form-content {
+            background: linear-gradient(50deg, rgb(122, 123, 126) 40%, rgba(40, 42, 55, 0.7)), url(images/bg.jpg);
+            background-size: cover;
+            padding: 15px;
+            width: 510px;
+            height: 570px;
+            border-radius: 25px;
+            margin: auto;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-content h2 {
+            color: #F4F6F9;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-size: 17px;
+            color: #959AAB;
+            margin-bottom: 10px;
+            text-align: left;
+            width: 100%;
+        }
+
+        input, textarea {
+            padding: 17px 14px;
+            background-color: #74767c;
+            border: 0;
+            font-size: 15px;
+            color: white;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .btn {
+            background-color: #1E92E9;
+            width: 150px;
+            align-self: flex-end;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0F6AB4;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-main">
+        <header>
+            <h1>Generar Reportes</h1>
+        </header>
+        <div class="container">
+            <nav>
+                <a href="star.html">Página Principal</a>
+                <a href="perfil1.html">Perfil</a>
+                <a href="califi.html">Colocar Calificaciones</a>
+                <a href="chat.html">eventos</a>
+            </nav>
+    
+            <section id="reportes">
+                <div class="form-content">
+                    <h2>Enviar su reporte</h2>
+                    <form action="https://formsubmit.co/sebastiancasas2007@gmail.com" method="POST">
+                        <label for="name">Nombre y Apellido completo del estudiante</label>
+                        <input type="text" name="name" id="name" required>
+    
+                        <label for="email">Correo electrónico del docente</label>
+                        <input type="email" name="email" id="email" required>
+    
+                        <label for="subject">Asunto</label>
+                        <input type="text" name="subject" id="subject" required>
+    
+                        <label for="comments">Comentarios</label>
+                        <textarea name="comments" id="comments" cols="30" rows="5" required></textarea>
+    
+                        <input class="btn" type="submit" value="Enviar">        
+                    </form>
+                </div>
+            </section>
+        </div>
+        
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Team queso. Gracias por ayudar a todos los estudiantes especiales que tienen</p>
+        </div>
+    </footer>
+</body>
+
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Team queso. Gracias por ayudar a todos los estudiantes especiales que tienen</p>
+        </div>
+    </footer>
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+

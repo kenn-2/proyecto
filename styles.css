@@ -1,0 +1,395 @@
+
+header {
+    background-color: rgba(0, 0, 0, 0.612);
+    padding: 20px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.container {
+    background-color: rgba(36, 34, 34, 0.913);
+    text-align: center;
+    padding: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+nav a.active {
+    background-color: #0056b3;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #211f1f;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 999;
+    box-shadow: 0 -2px 8px rgba(50, 48, 48, 0.856);
+}
+
+.body-main {
+    padding-bottom: 80px; 
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.53);
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #888;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.close:hover::before,
+.close:hover::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    top: -10px;
+    left: -10px;
+    z-index: -1;
+    border-radius: 12px;
+}
+
+.modal-content section {
+    padding: 20px;
+}
+
+.modal-content form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.modal-content form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: #333;
+}
+
+.modal-content form input,
+.modal-content form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal-content form .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1E92E9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content form .btn:hover {
+    background-color: #0F6AB4;
+}
+
+#resultadoPromedio {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+.calif,
+.profile-card,
+.report-card {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+    width: 400px;
+    border-radius: 25px;
+    background: linear-gradient(50deg, rgb(88, 89, 96) 40%, rgba(40, 42, 55, 0.7)), url(images/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 15px;
+    width: 500px;
+    border-radius: 25px;
+}
+.calif {
+    background-color: rgba(36, 34, 34, 0.913);
+    text-align: center;
+    padding: 50px;
+    width: 500px;
+    border-radius: 25px;
+    background: linear-gradient(50deg, rgb(88, 89, 96) 40%, rgba(40, 42, 55, 0.7)), url(images/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto; 
+    margin-top: 50px;
+}
+
+
+.calif h1,
+.profile-card h1,
+.report-card h1 {
+    color: #959aab;
+    font-size: 40px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.calif form,
+.profile-card form,
+.report-card form {
+    text-align: center;
+}
+
+.calif label,
+.profile-card label,
+.report-card label {
+    display: inline-block;
+    width: 200px;
+    font-size: 17px;
+    color: #a9abb5;
+    margin-bottom: 10px;
+    border-top-left-radius: 20%;
+}
+
+.calif input[type="text"],
+.calif input[type="number"],
+.profile-card input[type="text"],
+.profile-card input[type="number"],
+.report-card input[type="text"],
+.report-card input[type="number"] {
+    width: 200px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.calif button,
+.profile-card button,
+.report-card button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calif button:hover,
+.profile-card button:hover,
+.report-card button:hover {
+    background-color: #45a049;
+}
+
+.calif #resultadoPromedio,
+.profile-card #resultadoPromedio,
+.report-card #resultadoPromedio {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+.profile-card {
+    background-color: #2a2a2a;
+    width: 550px; 
+    padding: 80px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.779);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background: linear-gradient(50deg, rgb(88, 89, 96) 40%, rgba(40, 42, 55, 0.7)), url(images/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    margin-top: 50px;
+}
+
+
+.profile-picture {
+    flex: 0 0 auto;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.change-img-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-top: 10px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.change-img-btn:hover {
+    background-color: #0056b3;
+}
+
+.profile-details {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+.profile-details h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.profile-field {
+    margin-bottom: 12px;
+}
+
+.field-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#edit-profile-btn,
+#save-changes-btn {
+    margin-top: 10px;
+    padding: 8px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: block;
+}
+
+#edit-profile-btn:hover,
+#save-changes-btn:hover {
+    background-color: #218838;
+}
+
+.edit-form {
+    display: none;
+    margin-top: 15px;
+}
+
+.edit-form input {
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-form button {
+    width: 100%;
+}
+
+.success-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; 
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+

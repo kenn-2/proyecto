@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Estudiante</title>
+    <link rel="stylesheet" href="css/trabajo.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #fff;
+            font-size: 15px;
+            border: 3px solid;
+            border-radius: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        h1 {
+            color: #000000;
+            text-align: center;
+            font-size: 40px;
+        }
+        p {
+            color: #000000;
+            text-align: center;
+            width: 30%;
+            font-size: 32px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .form-group label {
+            display: inline-block;
+            width: 150px;
+        }
+        .form-group input {
+            width: 30%;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #333;
+            border-radius: 50%;
+            margin-right: 20px;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        function calcularPromedio() {
+            const primerBimestre = parseFloat(document.getElementById('primer_bimestre').value) || 0;
+            const segundoBimestre = parseFloat(document.getElementById('segundo_bimestre').value) || 0;
+            const tercerBimestre = parseFloat(document.getElementById('tercer_bimestre').value) || 0;
+            const cuartoBimestre = parseFloat(document.getElementById('cuarto_bimestre').value) || 0;
+
+            const promedio = (primerBimestre + segundoBimestre + tercerBimestre + cuartoBimestre) / 4;
+            document.getElementById('promedio_final').value = promedio.toFixed(2);
+        }
+
+        function limpiarCampos() {
+            document.getElementById('primer_bimestre').value = '';
+            document.getElementById('segundo_bimestre').value = '';
+            document.getElementById('tercer_bimestre').value = '';
+            document.getElementById('cuarto_bimestre').value = '';
+            document.getElementById('promedio_final').value = '';
+        }
+    </script>
+</head>
+<body>
+    <header class="containe">
+        <h1>Campus Digital</h1>
+    </header>
+
+    <nav>
+        <a href="inicio.html">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="calendario.html">Calendario</a>
+    </nav>
+    <h1>Reporte del Alumno</h1>
+    <hr color="black">
+
+    <table class="tabli">
+        <tr>
+            <td colspan="2" style="text-align: left;">
+                <b>Método de pago :</b>
+            </td>
+            <td colspan="2" style="text-align:right;">
+                <a href="https://www.viabcp.com/"><img src="img//Bcp banca.jpg" width="30" alt=""></a>
+                <a href="https://www.yape.com.pe/"><img src="img/yape-logo-3E473EE7E5-seeklogo.com.png" width="30" alt=""></a>
+                <a href="https://plin.pe/"><img src="img/OIP (4).jpg" width="30" alt=""></a>
+            </td>
+        </tr>
+    </table>
+    
+    <h6 style="text-align: center;"><strong>Aprende como:</strong></h6>
+    <div style="text-align: center;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/PHP1W3BrttY?si=5IRBgCALISdCgm2i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <hr color="black">
+
+    <h2>DATOS DEL ESTUDIANTE</h2>
+    <hr color="black">
+
+    <div class="profile-section">
+        <div class="profile-photo">
+            <img src="img//gratis-png-hombre-y-mujer-sosteniendo-carpetas-ilustracion-estudiante-educacion-universitaria-curso-estudiante.png" alt="Foto de Perfil">
+        </div>
+        <div>
+            <h3>
+                <div class="tra">
+                    <label for="nombre">Nombre:</label>
+                    <input style="width: 30%;" type="text" id="nombre" name="nombre" placeholder="Ingrese nombre del estudiante">
+                </div>
+                <br>
+                <div class="tri">
+                    <label for="apellidos">Apellidos:</label>
+                    <input style="width: 30%;" type="text" id="apellidos" name="apellidos" placeholder="Ingrese apellidos del estudiante">
+                </div>
+                <br>
+                <div class="tru">
+                    <label for="conducta">Conducta:</label>
+                    <input style="width: 30%;" type="text" id="conducta" name="conducta" placeholder="Ingrese...">
+                </div>
+            </h3>
+        </div>
+    </div>
+    
+    <hr color="black">
+
+    <h4 style="text-align: center;"><strong>CALCULE SUS CALIFICACIONES</strong></h4>
+    <hr color="black">
+
+    <div class="container">
+        <div class="form-group">
+            <label for="primer_bimestre">Primer Bimestre:</label>
+            <input type="text" id="primer_bimestre" name="primer_bimestre" placeholder="Ingrese nota..">
+        </div>
+        <div class="form-group">
+            <label for="segundo_bimestre">Segundo Bimestre:</label>
+            <input type="text" id="segundo_bimestre" name="segundo_bimestre" placeholder="Ingrese nota...">
+        </div>
+        <div class="form-group">
+            <label for="tercer_bimestre">Tercer Bimestre:</label>
+            <input type="text" id="tercer_bimestre" name="tercer_bimestre" placeholder="Ingrese nota...">
+        </div>
+        <div class="form-group">
+            <label for="cuarto_bimestre">Cuarto Bimestre:</label>
+            <input type="text" id="cuarto_bimestre" name="cuarto_bimestre" placeholder="Ingrese nota...">
+        </div>
+        <div class="form-group">
+            <label for="promedio_final">Promedio Final:</label>
+            <input type="text" id="promedio_final" name="promedio_final" placeholder="Ingrese promedio final..." readonly>
+        </div>
+        <div class="buttons">
+            <button type="button" onclick="calcularPromedio()">Calcular Promedio</button>
+            <button type="button" onclick="limpiarCampos()">Limpiar</button>
+            <button type="button" onclick="window.print()">Imprimir</button>
+        </div>
+    </div>
+    <footer style="text-align: center; margin-top: 20px;">
+        ¡Felicitaciones Estimado estudiante siga así!
+        <br>
+        Gracias por mostrar tus habilidades
+    </footer>
+</body>
+</html>
+
+
